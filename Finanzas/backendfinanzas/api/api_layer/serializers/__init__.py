@@ -1,0 +1,10 @@
+from .usuario_serializer import UsuarioSerializer
+from .tarea_serializer import TareaSerializer
+
+from .entidad_financiera_serializer import EntidadFinancieraSerializer
+from .cliente_serializer import ClienteSerializer
+from .cotizacion_credito_serializer import CotizacionCreditoSerializer
+from .proyecto_inmobiliario_serializer import ProyectoInmobiliarioSerializer
+from .unidad_inmobiliaria_serializer import UnidadInmobiliariaSerializer
+from .configuracion_serializer import ConfiguracionSerializer
+from .cronograma_pago_serializer import CronogramaPagoSerializer
