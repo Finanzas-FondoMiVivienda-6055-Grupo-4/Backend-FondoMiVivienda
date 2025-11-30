@@ -25,7 +25,13 @@ SECRET_KEY = "django-insecure-hnmq!w3-(7dg%0a!e8c(e#7s6p159)(ncs)d&gf46wsimuwz=^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    '10.0.2.2', 
+    '0.0.0.0', 
+    '*' 
+]
 
 
 # Application definition
@@ -80,17 +86,13 @@ WSGI_APPLICATION = "backendfinanzas.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'finanzas',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'OPTIONS': {
-            'options': '-c client_encoding=UTF8'
-        }
+        'NAME': os.environ.get('DB_NAME', 'finanzas'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', '1234'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
-
 
 
 # Password validation
