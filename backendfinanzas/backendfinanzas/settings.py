@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'financiero',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',  # para servir swagger ui
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'finanzas',
         'USER': 'postgres',
-        'PASSWORD': '1206211600',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
@@ -116,7 +118,28 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'API Fondo MiVivienda',
+    'DESCRIPTION': 'Documentación automática de los endpoints del backend Fondo MiVivienda.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'COMPONENT_SPLIT_REQUEST': True,
+    'SECURITY': [{
+        'BearerAuth': []
+    }],
+    'SECURITY_SCHEMES': {
+        'BearerAuth': {
+            'type': 'http',
+            'scheme': 'bearer',
+            'bearerFormat': 'JWT',
+        }
+    }
+}
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
