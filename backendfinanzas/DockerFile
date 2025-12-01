@@ -1,0 +1,20 @@
+FROM python:3.10-slim
+
+# Evitar archivos basura de python y ver logs en tiempo real
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Instalar librerías del sistema para PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev gcc
+
+# Instalar dependencias
+COPY backendfinanzas/requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el código
+COPY . /app/
+
+# Comando para arrancar el servidor en el puerto 8080
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "backendfinanzas.backendfinanzas.wsgi:application"]
