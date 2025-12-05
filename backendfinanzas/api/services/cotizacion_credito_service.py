@@ -67,7 +67,7 @@ class CotizacionCreditoService:
         if tipo_tasa == 'nominal':
             tasa_efectiva_anual = convertir_tasa_nominal_a_efectiva(tasa_interes, 12)
 
-        # 5. Generar Cronograma (Usando el motor del Dev B)
+        # 5. Generar Cronograma
         cronograma_calculado = generar_cronograma_pagos(
             monto_principal=monto_financiar,
             tasa_anual=tasa_efectiva_anual,

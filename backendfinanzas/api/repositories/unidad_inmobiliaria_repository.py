@@ -23,3 +23,9 @@ class UnidadInmobiliariaRepository:
     @staticmethod
     def delete(instance: UnidadInmobiliaria):
         instance.delete()
+    
+    @staticmethod
+    def list_by_proyecto(id_proyecto: int):
+        return UnidadInmobiliaria.objects.filter(
+            id_proyecto_id=id_proyecto
+        )

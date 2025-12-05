@@ -20,3 +20,7 @@ class UnidadInmobiliariaService:
     @staticmethod
     def eliminar(instance):
         UnidadInmobiliariaRepository.delete(instance)
+
+    @staticmethod
+    def listar_por_proyecto(id_proyecto: int):
+        return UnidadInmobiliariaRepository.list_by_proyecto(id_proyecto)

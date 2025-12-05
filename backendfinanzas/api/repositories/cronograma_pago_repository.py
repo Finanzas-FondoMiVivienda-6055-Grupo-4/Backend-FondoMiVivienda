@@ -10,6 +10,12 @@ class CronogramaPagoRepository:
         return CronogramaPago.objects.get(id_cronograma=id_cronograma)
 
     @staticmethod
+    def list_by_cotizacion(id_cotizacion: int):
+        return CronogramaPago.objects.filter(
+            id_cotizacion_id=id_cotizacion
+        ).order_by('numero_cuota')
+
+    @staticmethod
     def create(data: dict):
         return CronogramaPago.objects.create(**data)
 

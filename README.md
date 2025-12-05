@@ -21,6 +21,11 @@ python -m venv venv
 Activar entorno virtual en Windows:
 venv\Scripts\activate
 
+Activar terminal Bash:
+    source venv/Scripts/activate
+    python manage.py migrate
+    python manage.py runserver 0.0.0.0:8000 //local
+
 Instalar dependencias del proyecto:
 pip install -r requirements.txt
 
